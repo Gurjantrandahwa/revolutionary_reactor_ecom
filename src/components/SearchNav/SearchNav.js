@@ -39,14 +39,14 @@ const SearchNav = () => {
             {/* cart*/}
 
             <div className={"cart-wrapper"}>
-                <p>
+                <div>
                     <BsPerson/>
                     <p>Account</p>
-                </p>
-                <p>
+                </div>
+                <div>
                     <TbShoppingCartPlus/>
                     <p>Cart</p>
-                </p>
+                </div>
             </div>
         </div>
 

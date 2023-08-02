@@ -1,44 +1,38 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import {useProductContext} from "../../Common/Context/productContext";
+import ProductCard from "../ProductCard/ProductCard";
+import "./productList.scss";
+
 
 const ProductList = () => {
-    const [products, setProducts] = useState([]);
+    const {isLoading, isError, products} = useProductContext();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('https://dummyjson.com/products');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (isError) {
+        return <div>Error occurred while fetching data. Please try Later...</div>;
+    }
+
+    return <div className={"product-list-container"}>
+        <h2>Products For You!</h2>
+
+        <div className={"product-list"}>
+            {products.map((product) => {
+                    return <ProductCard
+                        id={product.id}
+                        name={product.title}
+                        desc={product.description}
+                        image={product.thumbnail}
+                        rating={product.rating}
+                    />
                 }
-                const data = await response.json();
-                // Assuming 'products' is the key containing the array of products
-                const productList = data.products || [];
-                setProducts(productList);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                setProducts([]);
-            }
-        };
-
-        fetchData();
-    }, []);
-    console.log(products)
-    return (
-        <div>
-            <h1>Product List</h1>
-            <ul>
-                {products.map((product) => (
-                    <div key={product.id}>
-                        <li>
-                            {product.title}
-                        </li>
-                        <img src={product.images[0]} alt={""} width={100}/>
-                    </div>
-
-                ))}
-            </ul>
+            )}
         </div>
-    );
+
+
+    </div>
 };
 
 export default ProductList;

@@ -8,7 +8,7 @@ const Banner = () => {
         <div className={"banner-text"}>
             <h1>
                 Grab Upto 50% Off On
-                Selected Headphone
+                Selected Product
             </h1>
             <button>Buy Now</button>
         </div>

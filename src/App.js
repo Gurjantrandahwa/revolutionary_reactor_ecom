@@ -1,19 +1,27 @@
-import ProductList from "./components/ProductList/ProductList";
 import Header from "./components/Header/Header";
 import SearchNav from "./components/SearchNav/SearchNav";
-import Banner from "./components/Banner/Banner";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import React from "react";
+import SingleProduct from "./components/SingleProduct/SingleProduct";
+import Homepage from "./Pages/Homepage";
+import Footer from "./components/Footer/Footer";
+
 
 function App() {
 
-
-    return <div className={"app"}>
-        <Header/>
-        <div className={"container"}>
-            <SearchNav/>
-            <Banner/>
+    return <BrowserRouter>
+        <div className={"app"}>
+            <Header/>
+            <div className={"container"}>
+                <SearchNav/>
+            </div>
+            <Routes>
+                <Route path={"/"} element={<Homepage/>}/>
+                <Route path={"/singleProduct/:id"} element={<SingleProduct/>}/>
+            </Routes>
+            <Footer/>
         </div>
-
-    </div>
+    </BrowserRouter>
 }
 
 export default App;
