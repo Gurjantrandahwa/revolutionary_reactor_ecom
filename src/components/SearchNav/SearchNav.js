@@ -1,56 +1,57 @@
-import React from 'react';
-import "./searchNav.scss";
-import {BsChevronDown, BsPerson, BsSearch} from "react-icons/bs";
-import {TbShoppingCartPlus} from "react-icons/tb";
-import logo from "../../assets/logo.jpg";
-
+import React, { useState } from 'react';
+import './searchNav.scss';
+import { BsChevronDown, BsPerson, BsSearch } from 'react-icons/bs';
+import { TiShoppingCart } from 'react-icons/ti';
+import logo from '../../assets/logo.jpg';
+import { AiOutlineMenu } from 'react-icons/ai';
 
 const SearchNav = () => {
-    return <div className={"navbar"}>
-        {/*logo*/}
-        <a href={"/"}>
-        <div className={"logo-wrapper"}>
+    const [isNavOpen, setIsNavOpen] = useState(false);
 
-                <img src={logo} alt={"logo"}/>
+    const toggleNav = () => {
+        setIsNavOpen(!isNavOpen);
+    };
+
+    return    <div className={`navbar ${isNavOpen ? 'open' : ''}`}>
+        <a href="/">
+            <div className="logo-wrapper">
+                <img src={logo} alt="logo" />
                 <h2>Shopcart</h2>
-
-
-        </div>
+            </div>
         </a>
-        {/* Categories*/}
+        <div className="menu-icon" onClick={toggleNav}>
+            <AiOutlineMenu />
+        </div>
+
         <div>
             <ul>
-                <li>Categories <BsChevronDown/></li>
+                <li>Categories <BsChevronDown /></li>
                 <li>Deals</li>
                 <li>What's New</li>
                 <li>Delivery</li>
             </ul>
         </div>
 
-        <div className={"search-cart-wrapper"}>
-            {/*Search*/}
-            <div className={"search-bar"}>
-                <input type={"text"}
-                       placeholder={"Search Product"}
+        <div className="search-cart-wrapper">
+            <div className="search-bar">
+                <input
+                    type="text"
+                    placeholder="Search Product"
                 />
-                <BsSearch/>
+                <BsSearch />
             </div>
 
-            {/* cart*/}
-
-            <div className={"cart-wrapper"}>
+            <div className="cart-wrapper">
                 <div>
-                    <BsPerson/>
+                    <BsPerson />
                     <p>Account</p>
                 </div>
                 <div>
-                    <TbShoppingCartPlus/>
+                    <TiShoppingCart />
                     <p>Cart</p>
                 </div>
             </div>
         </div>
-
-
     </div>
 };
 

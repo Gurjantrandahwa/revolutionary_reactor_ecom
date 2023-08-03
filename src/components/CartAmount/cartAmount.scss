@@ -1,0 +1,17 @@
+.cart-amount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #EEEEEE;
+  gap: 20px;
+  padding: 0 20px;
+  color: #6c757d;
+  border-radius: 20px;
+
+  button {
+    border: none;
+    color: #6c757d;
+    margin-top: 3px;
+  }
+
+}

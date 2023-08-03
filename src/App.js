@@ -14,11 +14,13 @@ function App() {
             <Header/>
             <div className={"container"}>
                 <SearchNav/>
+
+                <Routes>
+                    <Route path={"/"} element={<Homepage/>}/>
+                    <Route path={"/singleProduct/:id"} element={<SingleProduct/>}/>
+                </Routes>
             </div>
-            <Routes>
-                <Route path={"/"} element={<Homepage/>}/>
-                <Route path={"/singleProduct/:id"} element={<SingleProduct/>}/>
-            </Routes>
+
             <Footer/>
         </div>
     </BrowserRouter>

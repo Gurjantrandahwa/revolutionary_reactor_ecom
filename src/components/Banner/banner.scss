@@ -6,10 +6,15 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 10px 40px;
-
+  @media screen and (max-width: 768px) {
+    padding: 40px 30px;
+    row-gap: 20px;
+  }
   .banner-text {
     max-width: 400px;
-
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+    }
 
     h1 {
       color: var(--primary-color);
@@ -30,5 +35,9 @@
   img {
     object-fit: cover;
     height: 400px;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      height: auto;
+    }
   }
 }

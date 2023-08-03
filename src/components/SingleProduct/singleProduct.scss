@@ -1,0 +1,168 @@
+.single-product-container {
+
+  hr {
+    border: 1px solid lightgray;
+  }
+
+  .single-title {
+    display: flex;
+    gap: 5px;
+    margin: 30px auto;
+    color: #888b8e;
+
+    p {
+      font-size: 15px;
+      text-transform: capitalize;
+      font-weight: 500;
+    }
+
+    .title {
+      color: black;
+    }
+  }
+
+  .single-product-wrapper {
+    display: flex;
+    column-gap: 60px;
+    flex-wrap: wrap;
+    row-gap: 30px;
+
+    .single-product {
+      flex: 1;
+
+      // images
+      img {
+        background-color: rgba(229, 229, 229, 0.73);
+        border-radius: 10px;
+      }
+
+      .main-img {
+        width: 100%;
+        padding: 70px 50px;
+      }
+
+      .bottom-images {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        img {
+          width: 120px;
+          height: 120px;
+          object-fit: cover;
+          padding: 20px;
+        }
+      }
+
+      //  text
+      .product-name {
+        margin-bottom: 10px;
+
+        h2 {
+          text-transform: capitalize;
+          margin-bottom: 5px;
+          font-size: 24px;
+          font-weight: 700;
+        }
+
+        p {
+          color: #252525;
+          font-size: 14px;
+        }
+      }
+
+      .rating-wrapper {
+        display: flex;
+        gap: 5px;
+
+        p {
+          font-size: 15px;
+          font-weight: 500;
+          color: #252525;
+        }
+      }
+
+      .price-wrapper {
+        h2 {
+          font-weight: 600;
+        }
+
+        p {
+          color: #252525;
+          font-size: 14px;
+        }
+      }
+
+      .quantity-wrapper {
+        display: flex;
+        gap: 30px;
+
+        p {
+          font-size: 14px;
+          font-weight: 500;
+
+          span {
+            color: orangered;
+          }
+        }
+      }
+
+      .single-p-buttons {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+
+        button {
+          padding: 10px 40px;
+          font-weight: 500;
+          border-radius: 20px;
+        }
+
+        .filled-btn {
+          border: none;
+          background-color: var(--primary-color);
+          color: white;
+        }
+
+        .outline-btn {
+          border: 1.5px solid var(--primary-color);
+          color: var(--primary-color);
+          background: transparent;
+        }
+
+      }
+
+      .delivery-wrapper {
+        margin-top: 30px;
+        border: 1px solid lightgray;
+        border-radius: 8px;
+
+        .single-delivery {
+          border-bottom: 1px solid lightgray;
+          display: flex;
+          gap: 15px;
+          padding: 15px 20px;
+
+          svg {
+            color: orangered;
+            margin-top: 5px;
+          }
+
+          div {
+            h5 {
+              font-weight: 500;
+              font-size: 16px;
+            }
+
+            p {
+              font-size: 13px;
+              color: #252525;
+            }
+          }
+        }
+      }
+    }
+  }
+}

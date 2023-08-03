@@ -48,11 +48,15 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+
 }
 
-
-
-
+@media screen and (max-width: 768px) {
+  .header{
+    display: none;
+  }
+}
 
 
 

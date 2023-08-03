@@ -6,4 +6,25 @@
     flex-wrap: wrap;
     gap: 20px;
   }
+
+  .load-button {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 5px 16px;
+    background-color: transparent;
+    font-weight: 500;
+    border-radius: 20px;
+    transition: .3s ease-in-out;
+    display: flex;
+    margin: 30px auto;
+    justify-content: center;
+
+    &:hover {
+      background-color: var(--primary-color);
+      color: #ffffff;
+    }
+
+}
+
+
 }
