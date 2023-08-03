@@ -1,13 +1,16 @@
 import React, {useState} from 'react';
 import {useProductContext} from "../../Common/Context/productContext";
+import { useNavigate } from "react-router-dom";
 import "./singleProduct.scss";
 import Rating from "../Rating/Rating";
 import CartAmount from "../CartAmount/CartAmount";
 import {BsClipboard, BsTruck} from "react-icons/bs";
+import {BiArrowBack} from "react-icons/bi";
 
 const SingleProduct = () => {
     const {singleProduct, isLoading, isError} = useProductContext();
-    const [amount, setAmount] = useState(1)
+    const [amount, setAmount] = useState(1);
+    const navigate = useNavigate();
     const {title, thumbnail, description, images, rating, price, brand, category, stock} = singleProduct;
     if (isLoading) {
         return <div>Loading...</div>;
@@ -29,7 +32,10 @@ const SingleProduct = () => {
 
     return <div className={"single-product-container"}>
         <hr/>
-
+        <button className={"back-button"} onClick={() => navigate(-1)}>
+            <BiArrowBack/>
+            Back
+        </button>
         <div className={"single-title"}>
             <p>{category}</p>/
             <p>{brand}</p>/

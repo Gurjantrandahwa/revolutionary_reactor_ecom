@@ -3,7 +3,7 @@ import './searchNav.scss';
 import { BsChevronDown, BsPerson, BsSearch } from 'react-icons/bs';
 import { TiShoppingCart } from 'react-icons/ti';
 import logo from '../../assets/logo.jpg';
-import { AiOutlineMenu } from 'react-icons/ai';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
 const SearchNav = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -20,39 +20,36 @@ const SearchNav = () => {
             </div>
         </a>
         <div className="menu-icon" onClick={toggleNav}>
-            <AiOutlineMenu />
+            {isNavOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
         </div>
 
-        <div>
+        <div className={`nav-links ${isNavOpen ? 'open' : ''}`}>
             <ul>
                 <li>Categories <BsChevronDown /></li>
                 <li>Deals</li>
                 <li>What's New</li>
                 <li>Delivery</li>
             </ul>
-        </div>
 
-        <div className="search-cart-wrapper">
-            <div className="search-bar">
-                <input
-                    type="text"
-                    placeholder="Search Product"
-                />
-                <BsSearch />
-            </div>
-
-            <div className="cart-wrapper">
-                <div>
-                    <BsPerson />
-                    <p>Account</p>
+            <div className="search-cart-wrapper">
+                <div className="search-bar">
+                    <input type="text" placeholder="Search Product" />
+                    <BsSearch />
                 </div>
-                <div>
-                    <TiShoppingCart />
-                    <p>Cart</p>
+
+                <div className="cart-wrapper">
+                    <div>
+                        <BsPerson />
+                        <p>Account</p>
+                    </div>
+                    <div>
+                        <TiShoppingCart />
+                        <p>Cart</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-};
+}
 
 export default SearchNav;

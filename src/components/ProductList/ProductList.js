@@ -5,7 +5,7 @@ import './productList.scss';
 
 const ProductList = () => {
     const {isLoading, isError, products} = useProductContext();
-    const [visibleProducts, setVisibleProducts] = useState(12); // Number of products initially visible
+    const [visibleProducts, setVisibleProducts] = useState(12);
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -16,7 +16,7 @@ const ProductList = () => {
     }
 
     const loadMoreProducts = () => {
-        setVisibleProducts(visibleProducts + 12); // Load 12 more products
+        setVisibleProducts(visibleProducts + 12);
     };
 
     return <div className={'product-list-container'}>
@@ -25,7 +25,7 @@ const ProductList = () => {
         <div className={'product-list'}>
             {products.slice(0, visibleProducts).map((product) => (
                 <ProductCard
-                    key={product.id} // Make sure to add a unique key
+                    key={product.id}
                     id={product.id}
                     name={product.title}
                     desc={product.description}
