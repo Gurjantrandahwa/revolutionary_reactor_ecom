@@ -1,0 +1,39 @@
+.filter-p-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px auto;
+  flex-wrap: wrap;
+  row-gap: 30px;
+
+  p {
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+
+  select {
+    background-color: var(--primary-color);
+    text-transform: capitalize;
+    color: white;
+    font-weight: 500;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    option {
+      background-color: var(--secondary-color);
+      text-transform: capitalize;
+      padding: 4px;
+
+    }
+  }
+
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 20px;
+    border-radius: 20px;
+  }
+}

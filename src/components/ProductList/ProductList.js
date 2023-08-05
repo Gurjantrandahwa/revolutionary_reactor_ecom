@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {useProductContext} from '../../Common/Context/productContext';
+import {useFilterContext} from '../../Common/Context/filter_context';
 import ProductCard from '../ProductCard/ProductCard';
 import './productList.scss';
 
 const ProductList = () => {
-    const {isLoading, isError, products} = useProductContext();
+    const {isLoading, isError, filter_products} = useFilterContext();
     const [visibleProducts, setVisibleProducts] = useState(12);
 
     if (isLoading) {
@@ -16,14 +16,13 @@ const ProductList = () => {
     }
 
     const loadMoreProducts = () => {
-        setVisibleProducts(visibleProducts + 12);
+        setVisibleProducts(prevVisibleProducts => prevVisibleProducts + 12);
     };
 
-    return <div className={'product-list-container'}>
+    return <div className="product-list-container">
         <h2>Products For You!</h2>
-
-        <div className={'product-list'}>
-            {products.slice(0, visibleProducts).map((product) => (
+        <div className="product-list">
+            {filter_products.slice(0, visibleProducts).map((product) => (
                 <ProductCard
                     key={product.id}
                     id={product.id}
@@ -34,15 +33,12 @@ const ProductList = () => {
                 />
             ))}
         </div>
-
-        {visibleProducts < products.length && (
+        {visibleProducts < filter_products.length && (
             <button className="load-button" onClick={loadMoreProducts}>
                 Load More
             </button>
         )}
-
-
     </div>
-}
+};
 
 export default ProductList;
